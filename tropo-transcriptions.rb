@@ -40,6 +40,10 @@ get '/transcription' do
   erb :single
 end
 
+get '/receive_transcription' do
+"go away"
+end
+
 post '/receive_transcription' do
   logger.info env['rack.request.form_hash'].to_s
   begin 
