@@ -41,6 +41,7 @@ post '/receive_transcription' do
     logger.info 'JSON Response encoded to Ruby Hash'
   end
   logger.info result.inspect
+
   
   # Create a new shout and redirect back to the list.
   shout = VoxeoTranscription.create(:guid       => result['result']['guid'],
