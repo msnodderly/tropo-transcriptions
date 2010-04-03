@@ -13,10 +13,19 @@ h2. Requirements
 
 * Ruby 1.8.6+
 * <a href='http://git-scm.com/'>Git</a>
+* sqlite3
 * Gems
 ** Sinatra 0.9.2+
 ** dm-core 0.10.0+
 * <a href='http://www.heroku.com'>Heroku account</a> 
+
+* crack
+* data_objects
+* do_sqlite3
+nstall data_objects do_sqlite3
+  
+  sudo gem install sinatra crack  dm-core data_objects do_sqlite3
+  
 
 h2. Installation
 

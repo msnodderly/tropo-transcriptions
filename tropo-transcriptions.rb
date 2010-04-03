@@ -5,10 +5,10 @@ require 'dm-core'
 
 
 # Configure DataMapper to use the App Engine datastore 
-DataMapper.setup(:default, "appengine://auto")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 # Create your model class
-class VoxeoTranscriptions
+class VoxeoTranscription
   include DataMapper::Resource
   
   property :id, Serial
@@ -17,15 +17,17 @@ class VoxeoTranscriptions
   property :message, Text
 end
 
+DataMapper.auto_upgrade!
+
 get '/transcriptions' do
   # Just list all the shouts
-  @transcriptions = VoxeoTranscriptions.all
+  @transcriptions = VoxeoTranscription.all
   erb :index
 end
 
 get '/transcription' do
   # Just list all the shouts
-  @transcription = VoxeoTranscriptions.first(:guid => params[:guid])
+  @transcription = VoxeoTranscription.first(:guid => params[:guid])
   erb :single
 end
 
@@ -41,7 +43,7 @@ post '/receive_transcription' do
   logger.info result.inspect
   
   # Create a new shout and redirect back to the list.
-  shout = VoxeoTranscriptions.create(:guid       => result['result']['guid'],
+  shout = VoxeoTranscription.create(:guid       => result['result']['guid'],
                                      :identifier => result['result']['identifier'],
                                      :message    => result['result']['transcription'])
 end
