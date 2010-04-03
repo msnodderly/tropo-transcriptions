@@ -42,7 +42,6 @@ post '/receive_transcription' do
   end
   logger.info result.inspect
 
-  
   # Create a new shout and redirect back to the list.
   shout = VoxeoTranscription.create(:guid       => result['result']['guid'],
                                      :identifier => result['result']['identifier'],
