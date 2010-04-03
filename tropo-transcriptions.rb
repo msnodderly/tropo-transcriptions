@@ -30,7 +30,7 @@ end
 get '/transcriptions' do
   # Just list all the shouts
   @transcriptions = VoxeoTranscription.all
-  t = VoxeoTranscription.create(:guid => '1234', :identifier => "5431", :message => "this is a test message (run 3)")
+#t = VoxeoTranscription.create(:guid => '1234', :identifier => "5431", :message => "this is a test message (run 3)")
   erb :index
 end
 
