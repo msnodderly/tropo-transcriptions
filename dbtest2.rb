@@ -5,7 +5,8 @@ require 'dm-core'
 
 
 # Configure DataMapper to use the App Engine datastore 
-DataMapper.setup(:default,ENV['DATABASE_URL'] ||  "sqlite3://#{Dir.pwd}/tropo.sqlite3")
+#DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/dbtest2.sqlite3")
 
 
 # Create your model class
