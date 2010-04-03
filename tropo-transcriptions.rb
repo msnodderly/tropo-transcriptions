@@ -40,20 +40,13 @@ get '/transcription' do
   erb :single
 end
 
-get '/receive_transcription' do
-"go away"
-end
 
 post '/receive_transcription' do
-  logger.info env['rack.request.form_hash'].to_s
   begin 
     result = Crack::XML.parse env['rack.request.form_hash'].to_s
-    logger.info 'XML Response encoded to Ruby Hash'
   rescue 
     result = Crack::JSON.parse env['rack.request.form_hash'].to_s
-    logger.info 'JSON Response encoded to Ruby Hash'
   end
-  logger.info result.inspect
 
   # Create a new shout and redirect back to the list.
   shout = VoxeoTranscription.create(:guid       => result['result']['guid'],
