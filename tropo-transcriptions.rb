@@ -2,6 +2,8 @@ require 'rubygems'
 require 'sinatra'
 require 'crack'
 require 'dm-core'
+require 'dm-validations'
+
 require 'lib/authinabox'
 
 
