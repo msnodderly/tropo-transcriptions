@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'crack'
 require 'dm-core'
+require 'lib/authinabox'
 
 
 # Configure DataMapper to use the App Engine datastore 
