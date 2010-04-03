@@ -22,7 +22,7 @@ h2. Requirements
 * crack
 * data_objects
 * do_sqlite3
-nstall data_objects do_sqlite3
+* taps (for heroku db migrations)
   
   sudo gem install sinatra crack  dm-core data_objects do_sqlite3
   
