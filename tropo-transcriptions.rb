@@ -53,3 +53,14 @@ post '/receive_transcription' do
                                      :identifier => result['result']['identifier'],
                                      :message    => result['result']['transcription'])
 end
+
+
+
+ get '/signup' do
+   render_signup   # or render your own equivalent!
+ end
+ 
+ post '/signup' do
+   signup
+ end
+
