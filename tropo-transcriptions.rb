@@ -2,9 +2,6 @@ require 'rubygems'
 require 'sinatra'
 require 'crack'
 require 'dm-core'
-require 'dm-validations'
-
-require 'lib/authinabox'
 
 
 # Configure DataMapper to use the App Engine datastore 
@@ -24,16 +21,11 @@ end
 
 DataMapper.auto_upgrade!
 
-get '/' do
-
-"oh, hi there. this is the db url: #{ENV['DATABASE_URL']}"
-
-end
 
 get '/transcriptions' do
   # Just list all the shouts
   @transcriptions = VoxeoTranscription.all
-#t = VoxeoTranscription.create(:guid => '1234', :identifier => "5431", :message => "this is a test message (run 3)")
+
   erb :index
 end
 
@@ -57,13 +49,4 @@ post '/receive_transcription' do
                                      :message    => result['result']['transcription'])
 end
 
-
-
- get '/signup' do
-   render_signup   # or render your own equivalent!
- end
- 
- post '/signup' do
-   signup
- end
 
