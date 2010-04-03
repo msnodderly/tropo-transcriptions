@@ -1,11 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'crack'
-require 'appengine-apis/logger'
 require 'dm-core'
 
-# Set the logger
-logger = AppEngine::Logger.new
 
 # Configure DataMapper to use the App Engine datastore 
 DataMapper.setup(:default, "appengine://auto")
