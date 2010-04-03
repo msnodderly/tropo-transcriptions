@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'crack'
+gem 'crack'
 require 'dm-core'
 
 

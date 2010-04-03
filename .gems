@@ -1,0 +1,3 @@
+crack
+gem 'crack'
+do_sqlite3
