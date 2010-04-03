@@ -5,7 +5,8 @@ require 'dm-core'
 
 
 # Configure DataMapper to use the App Engine datastore 
-DataMapper.setup(:default,ENV['DATABASE_URL'] ||  "sqlite3://#{Dir.pwd}/tropo.sqlite3")
+DataMapper.setup(:default, ENV['DATABASE_URL'] ||  "sqlite3://#{Dir.pwd}/tropo.sqlite3")
+
 
 
 # Create your model class
@@ -22,12 +23,14 @@ DataMapper.auto_upgrade!
 
 get '/' do
 
-"oh, hi there"
+"oh, hi there. this is the db url: #{ENV['DATABASE_URL']}"
+
 end
 
 get '/transcriptions' do
   # Just list all the shouts
   @transcriptions = VoxeoTranscription.all
+  t = VoxeoTranscription.create(:guid => '1234', :identifier => "5431", :message => "this is a test message (run 2)")
   erb :index
 end
 
